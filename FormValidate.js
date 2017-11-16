@@ -214,6 +214,13 @@
                     return re.test(value);
                 }
             },
+            phone: function (element) {
+                var value = $(element).val();
+                if (value != null && value != "") {
+                    var re = /(^0\d{2,3}\-\d{7,8}$)|(^1[3|4|5|6|7|8][0-9]{9}$)/;
+                    return re.test(value);
+                }
+            }
         }
     };
 
@@ -255,7 +262,7 @@
             .addClass("valierror")
             .attr("data-html", true)
             .attr("data-toggle", "tooltip")
-            .attr("data-placement", "bottom")
+            .attr("data-placement", "right")
             .attr("title", htmlError);
     }
 
@@ -334,7 +341,8 @@
         range: "请输入范围在 {0} 到 {1} 之间的数值",
         max: "请输入不大于 {0} 的数值",
         min: "请输入不小于 {0} 的数值",
-        mobile: "请输入手机号码"
+        mobile: "请输入手机号码",
+        phone:"请输入正确的电话号码或手机号码"
     };
 
     $.fn.FormValidate = function (options) {
